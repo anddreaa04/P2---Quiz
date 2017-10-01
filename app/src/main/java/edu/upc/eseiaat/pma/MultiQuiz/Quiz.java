@@ -31,14 +31,15 @@ public class Quiz extends AppCompatActivity {
 
 
         text_question.setText(parts [0]);
-        
+
         for (int i=0; i < ids_answers.length; i++) {
             RadioButton rb = (RadioButton) findViewById(ids_answers[i] );
             String answer = parts[i+1];
             if (answer.charAt(0) =='*') {
                 correct_answer = i;
+                answer =answer.substring(1);
             }
-            rb.setText (parts[i+1]);
+            rb.setText (answer);
         }
 
 
