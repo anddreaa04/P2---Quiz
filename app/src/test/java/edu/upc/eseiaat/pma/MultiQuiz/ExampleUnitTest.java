@@ -1,4 +1,4 @@
-package edu.upc.eseiaat.pma.quiz;
+package edu.upc.eseiaat.pma.MultiQuiz;
 
 import org.junit.Test;
 

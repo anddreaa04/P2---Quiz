@@ -6,6 +6,8 @@
     <string name="incorrect">Try again :( !</string>
 
 
+    <!-- Formato valido para una sola pregunta
+    <string name="question_content">Which is the capital of Bhutan?</string>
     <array name="answers">
         <item>Ougadougou</item>
         <item>Pnohm Penh</item>
@@ -14,5 +16,10 @@
     </array>
 
     <integer name="correct_answer">2</integer>
-    <string name="question_content">Which is the capital of Bhutan?</string>
+    -->
+    <array name= "all_questions">
+<item>What is the capital of Bhutan?;Ouagadougou;Phnom Penh;*Thimphu;Zgighiti</item>
+<item> Pregunta 2; a;*b;c;d</item>
+</array>
+
 </resources>

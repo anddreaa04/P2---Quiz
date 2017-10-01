@@ -1,4 +1,4 @@
-package edu.upc.eseiaat.pma.quiz;
+package edu.upc.eseiaat.pma.MultiQuiz;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
