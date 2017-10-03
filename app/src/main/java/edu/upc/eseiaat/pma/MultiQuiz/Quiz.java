@@ -22,24 +22,24 @@ public class Quiz extends AppCompatActivity {
     private String[] all_questions;
     private TextView text_question;
 
+    private RadioGroup group;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
         text_question = (TextView) findViewById(R.id.text_question);
-
+        group = (RadioGroup) findViewById(R.id.answer_group);
+        Button btn_check = (Button) findViewById(R.id.btn_check);
         all_questions = getResources().getStringArray(R.array.all_questions);
         current_question = 0;
 
         showQuestion();
 
-
-        final RadioGroup group = (RadioGroup) findViewById(R.id.answer_group);
-
 //TODO: cuando se clica el boton deberia pasar a la siguiente pregunta
 
-        Button btn_check = (Button) findViewById(R.id.btn_check);
+
         btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,8 +59,10 @@ public class Quiz extends AppCompatActivity {
                 }
 
 //TODO: hacer que function el método --> no funcionava perq no estava dins els corchetes corresponents
-                current_question++;
-                showQuestion();
+                if(current_question<all_questions.length - 1) {
+                    current_question++;
+                    showQuestion();
+                }
 
                 /*Log.i ("pauek", String.format("Id:%d",id));*/
             }
@@ -73,7 +75,7 @@ public class Quiz extends AppCompatActivity {
         String q = all_questions[current_question];
         String [] parts = q.split(";");
 
-
+        group.clearCheck();
         text_question.setText(parts [0]);
 
         for (int i=0; i < ids_answers.length; i++) {
