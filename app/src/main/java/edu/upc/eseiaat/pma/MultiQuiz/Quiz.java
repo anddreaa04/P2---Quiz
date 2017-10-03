@@ -2,6 +2,7 @@ package edu.upc.eseiaat.pma.MultiQuiz;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -21,8 +22,8 @@ public class Quiz extends AppCompatActivity {
     private int current_question;
     private String[] all_questions;
     private TextView text_question;
-
     private RadioGroup group;
+    private boolean [] answer_is_correct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Quiz extends AppCompatActivity {
         Button btn_check = (Button) findViewById(R.id.btn_check);
         all_questions = getResources().getStringArray(R.array.all_questions);
         current_question = 0;
+        answer_is_correct = new boolean[all_questions.length];
 
         showQuestion();
 
@@ -51,17 +53,23 @@ public class Quiz extends AppCompatActivity {
                         answer = i;
                     }
                 }
+                /*
                 if (answer == correct_answer) {
                     Toast.makeText(Quiz.this, R.string.correct, Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(Quiz.this, R.string.incorrect, Toast.LENGTH_SHORT).show();
                 }
+                */
 
+                answer_is_correct[current_question]= (answer== correct_answer);
 //TODO: hacer que function el método --> no funcionava perq no estava dins els corchetes corresponents
                 if(current_question<all_questions.length - 1) {
                     current_question++;
                     showQuestion();
+                }
+                for (int i = 0; i<answer_is_correct.length; i++){
+                    Log.i("Andrea",String.format("Respuesta %d:%b",i,answer_is_correct[i]));
                 }
 
                 /*Log.i ("pauek", String.format("Id:%d",id));*/
