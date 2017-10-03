@@ -31,6 +31,7 @@ public class Quiz extends AppCompatActivity {
 
         all_questions = getResources().getStringArray(R.array.all_questions);
         current_question = 0;
+
         showQuestion();
 
 
@@ -57,7 +58,9 @@ public class Quiz extends AppCompatActivity {
                     Toast.makeText(Quiz.this, R.string.incorrect, Toast.LENGTH_SHORT).show();
                 }
 
-
+//TODO: hacer que function el método --> no funcionava perq no estava dins els corchetes corresponents
+                current_question++;
+                showQuestion();
 
                 /*Log.i ("pauek", String.format("Id:%d",id));*/
             }
