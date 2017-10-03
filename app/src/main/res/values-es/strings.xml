@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Quiz</string>
     <string name="button">comprueba</string>
     <string name="correct">Buen trabajo :) !</string>
     <string name="incorrect">Prueba otra vez :( !</string>
     <string name="next">Siguiente</string>
     <string name="question">Pregunta</string>
     <string name="finish">Acaba</string>
+    <string name="prev">Retrocede</string>
 </resources>

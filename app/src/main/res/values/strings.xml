@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Quiz</string>
+    <string name="app_name" translatable="false">MultiQuiz</string>
     <string name="question">Question</string>
     <string name="button">check!</string>
     <string name="correct">Good job :) !</string>
     <string name="incorrect">Try again :( !</string>
     <string name="next">Next</string>
     <string name= "finish">Finish</string>
+    <string name="prev">Previous</string>
 
 
     <!-- Formato valido para una sola pregunta
