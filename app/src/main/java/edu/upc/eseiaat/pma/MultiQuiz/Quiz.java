@@ -24,6 +24,7 @@ public class Quiz extends AppCompatActivity {
     private TextView text_question;
     private RadioGroup group;
     private boolean [] answer_is_correct;
+    private Button btn_check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class Quiz extends AppCompatActivity {
 
         text_question = (TextView) findViewById(R.id.text_question);
         group = (RadioGroup) findViewById(R.id.answer_group);
-        Button btn_check = (Button) findViewById(R.id.btn_check);
+        btn_check = (Button) findViewById(R.id.btn_check);
         all_questions = getResources().getStringArray(R.array.all_questions);
         current_question = 0;
         answer_is_correct = new boolean[all_questions.length];
@@ -94,6 +95,9 @@ public class Quiz extends AppCompatActivity {
                 answer = answer.substring(1);
             }
             rb.setText (answer);
+            if(current_question== all_questions.length-1){
+                btn_check.setText(R.string.finish);
+            }
         }
     }
 }
