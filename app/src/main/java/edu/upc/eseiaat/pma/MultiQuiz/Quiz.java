@@ -24,7 +24,7 @@ public class Quiz extends AppCompatActivity {
     private TextView text_question;
     private RadioGroup group;
     private boolean [] answer_is_correct;
-    private Button btn_check;
+    private Button btn_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class Quiz extends AppCompatActivity {
 
         text_question = (TextView) findViewById(R.id.text_question);
         group = (RadioGroup) findViewById(R.id.answer_group);
-        btn_check = (Button) findViewById(R.id.btn_check);
+        btn_next = (Button) findViewById(R.id.btn_check);
         all_questions = getResources().getStringArray(R.array.all_questions);
         current_question = 0;
         answer_is_correct = new boolean[all_questions.length];
@@ -43,7 +43,7 @@ public class Quiz extends AppCompatActivity {
 //TODO: cuando se clica el boton deberia pasar a la siguiente pregunta
 
 
-        btn_check.setOnClickListener(new View.OnClickListener() {
+        btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int id = group.getCheckedRadioButtonId();
@@ -64,12 +64,27 @@ public class Quiz extends AppCompatActivity {
                 */
 
                 answer_is_correct[current_question]= (answer== correct_answer);
+
 //TODO: hacer que function el método --> no funcionava perq no estava dins els corchetes corresponents
                 if(current_question<all_questions.length - 1) {
                     current_question++;
                     showQuestion();
                 }
-                for (int i = 0; i<answer_is_correct.length; i++){
+                else{
+                    int correctas =0, incorrectas=0;
+                    for (boolean b : answer_is_correct){
+                        if (b) correctas++;
+                        else incorrectas++;
+                    }
+                    String resultado =
+                            String.format("Correctas: %d -- Incorrectas: %d", correctas, incorrectas);
+                    Toast.makeText(Quiz.this, resultado, Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+                /*for (int i = 0; i<answer_is_correct.length; i++){
                     Log.i("Andrea",String.format("Respuesta %d:%b",i,answer_is_correct[i]));
                 }
 
@@ -96,7 +111,7 @@ public class Quiz extends AppCompatActivity {
             }
             rb.setText (answer);
             if(current_question== all_questions.length-1){
-                btn_check.setText(R.string.finish);
+                btn_next.setText(R.string.finish);
             }
         }
     }
